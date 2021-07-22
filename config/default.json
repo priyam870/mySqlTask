@@ -1,0 +1,8 @@
+{
+    "PORT":8000,
+    "MYSQL_CONNECTION":{
+        "HOST":"localhost",
+        "USER":"root",
+        "PASSWORD":"mysql@1234"
+    }
+}
