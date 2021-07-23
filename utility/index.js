@@ -1,8 +1,8 @@
 const statusCode = require('../constants/status');
-const con = require('../connection/connect');
+
 module.exports = {
-    successResponse : async(res,status = statusCode.OK, message = "", data = {})=>{
-        return res.status(status).json({
+    response : (res,status = statusCode.OK, message = "", data = {})=>{
+        return res.status(status).send({
             success: true,
             message: message,
             data: data
@@ -13,17 +13,6 @@ module.exports = {
             super();
             this.message = message;
             this.status = status
-        }
-    },
-    executeQuery : async(query,value)=>{
-        try{
-        return await con.query(query,value,(err,result)=>{
-            if(err) throw err;
-            return result;
-        })
-        }
-        catch(error){
-            throw error;
         }
     }
 }
